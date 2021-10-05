@@ -1,4 +1,4 @@
-# kc-automated-login
+# Zerodha KiteConnect Automatic Login with TOTP
 Zerodha Kite Connect login automation using Python3, with recent TOTP mandate
 
 # Dependencies
