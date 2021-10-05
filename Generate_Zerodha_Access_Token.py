@@ -2,9 +2,9 @@
 # Author  : Raghu Ram ALLA
 # Date    : 05-October-2021
 # Purpose : Automate the process of generating access token for kiteconnect in python3. 
+# For this code to run you have to enable TOTP for 2FA
 # Special Thanks to Devesh Shukla
 ############################################################################
-# For this code to run you have to enable TOTP for 2FA
 
 import requests,json
 import pyotp
