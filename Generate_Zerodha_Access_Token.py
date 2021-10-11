@@ -31,7 +31,7 @@ def kiteLogin():
     gen_ssn             = kite.generate_session(request_token, api_secret)
     access_token        = gen_ssn['access_token']
     print(gen_ssn)
-
+ 
     # save token to text file
     with open('access_token.txt', 'w') as file:
         file.write(access_token)
