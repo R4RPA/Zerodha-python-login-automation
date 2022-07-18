@@ -1,8 +1,8 @@
 #######################################################################
 # Author  : Raghu Ram ALLA
-# Date    : 05-October-2021
+# Date    : 05-October-2021 Latest Update: 18-July-2022
 # Purpose : Automate the process of generating access token for kiteconnect in python3. 
-# For this code to run you have to enable TOTP for 2FA
+# For this code to run you have to enable TOTP for 2FA [TOTP is DISABLED ON JUL 18 2022]
 # Special Thanks to Devesh Shukla
 ############################################################################
 
@@ -15,15 +15,16 @@ def kiteLogin():
     api_secret          = 'api_secret'
     zerodha_id          = 'zerodha_id'
     zerodha_password    = 'zerodha_password'
-    totp_key            = 'totp_key'
+    #totp_key            = 'totp_key'
+    twofa               = 'twofa'
 
-    totp                = pyotp.TOTP(totp_key)
+    #totp                = pyotp.TOTP(totp_key)
     req_session         = requests.Session()
     loginurl            = "https://kite.zerodha.com/api/login"
     twofaUrl            = "https://kite.zerodha.com/api/twofa"
-    request_id          = eval(req_session.post(loginurl, {"user_id":zerodha_id, "password":zerodha_password}).text)["data"]["request_id"]
-    totp_pswd           = totp.now()
-    zerodha_login       = req_session.post(twofaUrl, {"user_id":zerodha_id, "request_id":request_id, "twofa_value":totp_pswd})
+    request_id          = eval(req_session.post(loginurl, {"user_id":zerodha_id, "password":zerodha_password, "twofa_value":twofa}).text)["data"]["request_id"]
+    #twofa               = totp.now()
+    zerodha_login       = req_session.post(twofaUrl, {"user_id":zerodha_id, "request_id":request_id, "twofa_value":twofa})
     zerodha_api_ssn     = req_session.get("https://kite.trade/connect/login?api_key="+api_key)
     zerodha_api_ssn     = zerodha_api_ssn.url.split("request_token=")
     request_token       = zerodha_api_ssn[1].split("&")[0]
