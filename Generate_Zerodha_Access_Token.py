@@ -1,8 +1,9 @@
 #######################################################################
 # Author  : Raghu Ram ALLA
-# Date    : 05-October-2021 Latest Update: 18-July-2022
+# Date    : 05-October-2021 Latest Update: 10-October-2022
 # Purpose : Automate the process of generating access token for kiteconnect in python3. 
 # For this code to run you have to enable TOTP for 2FA [TOTP is DISABLED ON JUL 18 2022]
+# Below program works only if Extenal TOTP is enabled [TOTP is RE-ENABLED IN OCT 2022]
 # Special Thanks to Devesh Shukla
 ############################################################################
 
